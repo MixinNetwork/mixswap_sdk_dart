@@ -1,3 +1,3 @@
-# mix_swap_sdk_dart
+# mixswap_sdk_dart
 
 Dark/Flutter SDK for MixSwap
