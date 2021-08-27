@@ -13,10 +13,10 @@ class Order with EquatableMixin {
   String payAmount;
   @JsonKey(name: 'receiveAssetUuid')
   String receiveAssetUuid;
-  @JsonKey(name: 'receiveAmount')
-  String receiveAmount;
-  @JsonKey(name: 'refundAmount')
-  String refundAmount;
+  @JsonKey(name: 'receiveAmount', fromJson: _amountFromJson)
+  String? receiveAmount;
+  @JsonKey(name: 'refundAmount', fromJson: _amountFromJson)
+  String? refundAmount;
   @JsonKey(name: 'tradePrice')
   String tradePrice;
   @JsonKey(name: 'orderStatus')
@@ -73,4 +73,9 @@ class Order with EquatableMixin {
         usdtProfitAmount,
         exchangeOrders,
       ];
+
+  static String? _amountFromJson(dynamic amount) =>
+      (amount == Null || amount == null || amount == 'null')
+          ? null
+          : amount.toString();
 }

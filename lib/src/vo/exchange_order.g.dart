@@ -11,8 +11,8 @@ ExchangeOrder _$ExchangeOrderFromJson(Map<String, dynamic> json) =>
       payAssetUuid: json['payAssetUuid'] as String,
       payAmount: json['payAmount'] as String,
       receiveAssetUuid: json['receiveAssetUuid'] as String,
-      receiveAmount: json['receiveAmount'] as String,
-      refundAmount: json['refundAmount'] as String,
+      receiveAmount: ExchangeOrder._amountFromJson(json['receiveAmount']),
+      refundAmount: ExchangeOrder._amountFromJson(json['refundAmount']),
       minReceiveAmount: json['minReceiveAmount'] as String,
       tradeStatus: json['tradeStatus'] as String,
     );

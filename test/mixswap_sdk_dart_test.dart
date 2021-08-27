@@ -5,7 +5,7 @@ import 'package:test/test.dart';
 void main() {
   group('apis', () {
     final client = Client(null);
-    test('test getAssets', () async {
+    test('test asset', () async {
       final response = await client.getAssets();
       print(response);
     });
@@ -15,6 +15,12 @@ void main() {
           '4d8c508b-91c5-375b-92b0-ee702ed2dac5',
           'c6d0c728-2624-429b-8e0d-d9d19b6592fa',
           '1000');
+      print(response);
+    });
+
+    test('test order', () async {
+      final response =
+          await client.getOrder('368efe52-f5ec-6dfc-dc4a-2836f869a52a');
       print(response);
     });
 
