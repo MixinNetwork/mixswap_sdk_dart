@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import './source.dart';
 import './rank.dart';
+import './source.dart';
 
 part 'route_data.g.dart';
 
