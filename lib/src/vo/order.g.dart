@@ -12,7 +12,7 @@ Order _$OrderFromJson(Map<String, dynamic> json) => Order(
       receiveAssetUuid: json['receiveAssetUuid'] as String,
       receiveAmount: Order._amountFromJson(json['receiveAmount']),
       refundAmount: Order._amountFromJson(json['refundAmount']),
-      tradePrice: json['tradePrice'] as String,
+      tradePrice: json['tradePrice'] as String?,
       orderStatus: json['orderStatus'] as String,
       refundStatus: json['refundStatus'] as String,
       minReceiveAmount: Order._amountFromJson(json['minReceiveAmount']),

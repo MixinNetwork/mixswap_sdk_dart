@@ -18,7 +18,7 @@ class Order with EquatableMixin {
   @JsonKey(name: 'refundAmount', fromJson: _amountFromJson)
   String? refundAmount;
   @JsonKey(name: 'tradePrice')
-  String tradePrice;
+  String? tradePrice;
   @JsonKey(name: 'orderStatus')
   String orderStatus;
   @JsonKey(name: 'refundStatus')
