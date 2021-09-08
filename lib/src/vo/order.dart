@@ -23,16 +23,16 @@ class Order with EquatableMixin {
   String orderStatus;
   @JsonKey(name: 'refundStatus')
   String refundStatus;
-  @JsonKey(name: 'minReceiveAmount')
-  String minReceiveAmount;
-  @JsonKey(name: 'estimateReceiveAmount')
-  String estimateReceiveAmount;
-  @JsonKey(name: 'estimateBestSourceReceiveAmount')
-  String estimateBestSourceReceiveAmount;
-  @JsonKey(name: 'profitAmount')
-  String profitAmount;
-  @JsonKey(name: 'usdtProfitAmount')
-  String usdtProfitAmount;
+  @JsonKey(name: 'minReceiveAmount', fromJson: _amountFromJson)
+  String? minReceiveAmount;
+  @JsonKey(name: 'estimateReceiveAmount', fromJson: _amountFromJson)
+  String? estimateReceiveAmount;
+  @JsonKey(name: 'estimateBestSourceReceiveAmount', fromJson: _amountFromJson)
+  String? estimateBestSourceReceiveAmount;
+  @JsonKey(name: 'profitAmount', fromJson: _amountFromJson)
+  String? profitAmount;
+  @JsonKey(name: 'usdtProfitAmount', fromJson: _amountFromJson)
+  String? usdtProfitAmount;
   List<ExchangeOrder> exchangeOrders;
 
   Order({

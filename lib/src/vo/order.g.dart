@@ -15,12 +15,13 @@ Order _$OrderFromJson(Map<String, dynamic> json) => Order(
       tradePrice: json['tradePrice'] as String,
       orderStatus: json['orderStatus'] as String,
       refundStatus: json['refundStatus'] as String,
-      minReceiveAmount: json['minReceiveAmount'] as String,
-      estimateReceiveAmount: json['estimateReceiveAmount'] as String,
+      minReceiveAmount: Order._amountFromJson(json['minReceiveAmount']),
+      estimateReceiveAmount:
+          Order._amountFromJson(json['estimateReceiveAmount']),
       estimateBestSourceReceiveAmount:
-          json['estimateBestSourceReceiveAmount'] as String,
-      profitAmount: json['profitAmount'] as String,
-      usdtProfitAmount: json['usdtProfitAmount'] as String,
+          Order._amountFromJson(json['estimateBestSourceReceiveAmount']),
+      profitAmount: Order._amountFromJson(json['profitAmount']),
+      usdtProfitAmount: Order._amountFromJson(json['usdtProfitAmount']),
       exchangeOrders: (json['exchangeOrders'] as List<dynamic>)
           .map((e) => ExchangeOrder.fromJson(e as Map<String, dynamic>))
           .toList(),
