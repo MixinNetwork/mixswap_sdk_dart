@@ -16,6 +16,8 @@ Route _$RouteFromJson(Map<String, dynamic> json) => Route(
           .toList(),
       payAmount: json['payAmount'] as String,
       receiveAmount: json['receiveAmount'] as String,
+      tradeType: json['tradeType'] as String?,
+      priceImpact: json['priceImpact'] as String?,
     );
 
 Map<String, dynamic> _$RouteToJson(Route instance) => <String, dynamic>{
@@ -24,4 +26,6 @@ Map<String, dynamic> _$RouteToJson(Route instance) => <String, dynamic>{
       'routeAmounts': instance.routeAmounts,
       'payAmount': instance.payAmount,
       'receiveAmount': instance.receiveAmount,
+      'tradeType': instance.tradeType,
+      'priceImpact': instance.priceImpact,
     };
