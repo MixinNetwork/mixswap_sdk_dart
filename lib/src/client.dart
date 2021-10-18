@@ -6,7 +6,7 @@ import 'vo/mix_response.dart';
 import 'vo/order.dart';
 import 'vo/route_data.dart';
 
-const mixSwapBaseUrl = 'https://mixswap.exchange/api/v1';
+const mixSwapBaseUrl = 'https://app.mixswap.exchange/api/v1';
 
 class Client {
   Client(BaseOptions? dioOptions) {
