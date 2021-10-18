@@ -1,6 +1,6 @@
 name: mixswap_sdk_dart
 description: MixSwap API for Dart/Flutter.
-version: 0.0.1
+version: 0.1.0
 homepage: https://github.com/MixinNetwork/mixswap_sdk_dart
 
 environment:
