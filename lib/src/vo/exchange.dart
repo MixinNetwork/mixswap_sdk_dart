@@ -11,15 +11,15 @@ class Exchange with EquatableMixin {
     required this.iconUrl,
   });
 
+  factory Exchange.fromJson(Map<String, dynamic> json) =>
+      _$ExchangeFromJson(json);
+
   @JsonKey(name: 'symbol')
   String symbol;
   @JsonKey(name: 'name')
   String name;
   @JsonKey(name: 'iconUrl')
   String iconUrl;
-
-  factory Exchange.fromJson(Map<String, dynamic> json) =>
-      _$ExchangeFromJson(json);
 
   Map<String, dynamic> toJson() => _$ExchangeToJson(this);
 

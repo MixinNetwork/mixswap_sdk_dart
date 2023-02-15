@@ -5,6 +5,19 @@ part 'exchange_order.g.dart';
 
 @JsonSerializable()
 class ExchangeOrder with EquatableMixin {
+  ExchangeOrder({
+    required this.payAssetUuid,
+    required this.payAmount,
+    required this.receiveAssetUuid,
+    required this.receiveAmount,
+    required this.refundAmount,
+    required this.minReceiveAmount,
+    required this.tradeStatus,
+  });
+
+  factory ExchangeOrder.fromJson(Map<String, dynamic> json) =>
+      _$ExchangeOrderFromJson(json);
+
   @JsonKey(name: 'payAssetUuid')
   String payAssetUuid;
   @JsonKey(name: 'payAmount')
@@ -19,18 +32,6 @@ class ExchangeOrder with EquatableMixin {
   String minReceiveAmount;
   @JsonKey(name: 'tradeStatus')
   String tradeStatus;
-
-  ExchangeOrder(
-      {required this.payAssetUuid,
-      required this.payAmount,
-      required this.receiveAssetUuid,
-      required this.receiveAmount,
-      required this.refundAmount,
-      required this.minReceiveAmount,
-      required this.tradeStatus});
-
-  factory ExchangeOrder.fromJson(Map<String, dynamic> json) =>
-      _$ExchangeOrderFromJson(json);
 
   Map<String, dynamic> toJson() => _$ExchangeOrderToJson(this);
 

@@ -12,12 +12,12 @@ class Source with EquatableMixin {
     required this.routes,
   });
 
+  factory Source.fromJson(Map<String, dynamic> json) => _$SourceFromJson(json);
+
   @JsonKey(name: 'exchangeSymbol')
   String exchangeSymbol;
   @JsonKey(name: 'routes')
   List<Route> routes;
-
-  factory Source.fromJson(Map<String, dynamic> json) => _$SourceFromJson(json);
 
   Map<String, dynamic> toJson() => _$SourceToJson(this);
 

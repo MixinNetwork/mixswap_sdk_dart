@@ -15,6 +15,8 @@ class Route with EquatableMixin {
     this.priceImpact,
   });
 
+  factory Route.fromJson(Map<String, dynamic> json) => _$RouteFromJson(json);
+
   @JsonKey(name: 'routePath')
   List<String> routePath;
   @JsonKey(name: 'routeIds')
@@ -29,8 +31,6 @@ class Route with EquatableMixin {
   String? tradeType;
   @JsonKey(name: 'priceImpact')
   String? priceImpact;
-
-  factory Route.fromJson(Map<String, dynamic> json) => _$RouteFromJson(json);
 
   Map<String, dynamic> toJson() => _$RouteToJson(this);
 

@@ -7,6 +7,24 @@ part 'order.g.dart';
 
 @JsonSerializable()
 class Order with EquatableMixin {
+  Order({
+    required this.payAssetUuid,
+    required this.payAmount,
+    required this.receiveAssetUuid,
+    required this.receiveAmount,
+    required this.refundAmount,
+    required this.tradePrice,
+    required this.orderStatus,
+    required this.refundStatus,
+    required this.minReceiveAmount,
+    required this.estimateReceiveAmount,
+    required this.estimateBestSourceReceiveAmount,
+    required this.profitAmount,
+    required this.usdtProfitAmount,
+    required this.exchangeOrders,
+  });
+
+  factory Order.fromJson(Map<String, dynamic> json) => _$OrderFromJson(json);
   @JsonKey(name: 'payAssetUuid')
   String payAssetUuid;
   @JsonKey(name: 'payAmount')
@@ -34,25 +52,6 @@ class Order with EquatableMixin {
   @JsonKey(name: 'usdtProfitAmount', fromJson: _amountFromJson)
   String? usdtProfitAmount;
   List<ExchangeOrder> exchangeOrders;
-
-  Order({
-    required this.payAssetUuid,
-    required this.payAmount,
-    required this.receiveAssetUuid,
-    required this.receiveAmount,
-    required this.refundAmount,
-    required this.tradePrice,
-    required this.orderStatus,
-    required this.refundStatus,
-    required this.minReceiveAmount,
-    required this.estimateReceiveAmount,
-    required this.estimateBestSourceReceiveAmount,
-    required this.profitAmount,
-    required this.usdtProfitAmount,
-    required this.exchangeOrders,
-  });
-
-  factory Order.fromJson(Map<String, dynamic> json) => _$OrderFromJson(json);
 
   Map<String, dynamic> toJson() => _$OrderToJson(this);
 

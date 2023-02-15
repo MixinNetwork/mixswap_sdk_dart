@@ -13,16 +13,23 @@ class Client {
     _dio = Dio(dioOptions);
     _dio.options.baseUrl = mixSwapBaseUrl;
   }
+
   late Dio _dio;
 
   Future<MixResponse<RouteData>> getRoutes(
-          String payAssetUuid, String receiveAssetUuid, String payAmount) =>
+    String payAssetUuid,
+    String receiveAssetUuid,
+    String payAmount,
+  ) =>
       MixResponse.request<RouteData>(
-        _dio.get('/trade/routes', queryParameters: {
-          'payAssetUuid': payAssetUuid,
-          'receiveAssetUuid': receiveAssetUuid,
-          'payAmount': payAmount,
-        }),
+        _dio.get(
+          '/trade/routes',
+          queryParameters: {
+            'payAssetUuid': payAssetUuid,
+            'receiveAssetUuid': receiveAssetUuid,
+            'payAmount': payAmount,
+          },
+        ),
         (json) => RouteData.fromJson(json),
       );
 
