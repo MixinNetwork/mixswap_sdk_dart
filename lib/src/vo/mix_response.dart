@@ -2,35 +2,43 @@ import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 
 class MixResponse<T> with EquatableMixin {
-  MixResponse(
-    this.data,
-  );
+  MixResponse(this.data);
 
-  factory MixResponse.fromJson(
-      Map<String, dynamic> json, T Function(dynamic) parser) {
-    final dataJson = json['data'];
-    final dynamic data = dataJson == null ? null : parser(dataJson);
+  factory MixResponse._fromJson(
+    Map<String, dynamic> json,
+    T Function(Map<String, dynamic>) parser,
+  ) {
+    final dataJson = json['data'] as Map<String, dynamic>;
+    final data = parser(dataJson);
     return MixResponse<T>(data);
   }
 
   T data;
 
   static Future<MixResponse<T>> request<T>(
-      Future<Response> future, T Function(dynamic) parser) async {
-    final response = (await future).data;
-    return MixResponse<T>.fromJson(response, parser);
+    Future<Response<Map<String, dynamic>>> future,
+    T Function(Map<String, dynamic>) parser,
+  ) async {
+    final response = (await future).data!;
+    return MixResponse<T>._fromJson(response, parser);
   }
 
   static Future<MixResponse<List<T>>> requestList<T>(
-      Future<Response> future, T Function(dynamic) parser) async {
-    final response = (await future).data as Map<String, dynamic>;
-    final dataJsonList = response['data'];
-    assert(dataJsonList is List);
+    Future<Response<Map<String, dynamic>>> future,
+    T Function(Map<String, dynamic>) parser,
+  ) async {
+    final response = (await future).data!;
+    final dataJsonList = response['data'] as List<dynamic>;
     return MixResponse<List<T>>(
-        (dataJsonList as List).map((e) => parser(e)).toList());
+      dataJsonList
+          .map((dynamic e) => parser(e as Map<String, dynamic>))
+          .toList(),
+    );
   }
 
-  static Future<MixResponse<void>> requestVoid(Future<Response> future) async {
+  static Future<MixResponse<void>> requestVoid(
+    Future<Response<Map<String, dynamic>>> future,
+  ) async {
     await future;
     return MixResponse(null);
   }

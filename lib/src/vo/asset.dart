@@ -7,13 +7,16 @@ part 'asset.g.dart';
 
 @JsonSerializable()
 class Asset with EquatableMixin {
-  Asset(
-      {required this.uuid,
-      required this.symbol,
-      required this.name,
-      required this.iconUrl,
-      required this.priceUsdt,
-      required this.chainAsset});
+  Asset({
+    required this.uuid,
+    required this.symbol,
+    required this.name,
+    required this.iconUrl,
+    required this.priceUsdt,
+    required this.chainAsset,
+  });
+
+  factory Asset.fromJson(Map<String, dynamic> json) => _$AssetFromJson(json);
 
   @JsonKey(name: 'uuid')
   String uuid;
@@ -27,8 +30,6 @@ class Asset with EquatableMixin {
   String priceUsdt;
   @JsonKey(name: 'chainAsset')
   ChainAsset chainAsset;
-
-  factory Asset.fromJson(Map<String, dynamic> json) => _$AssetFromJson(json);
 
   Map<String, dynamic> toJson() => _$AssetToJson(this);
 

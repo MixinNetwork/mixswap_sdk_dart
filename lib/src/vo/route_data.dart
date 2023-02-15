@@ -19,6 +19,9 @@ class RouteData with EquatableMixin {
     required this.bestSourceReceiveAmount,
   });
 
+  factory RouteData.fromJson(Map<String, dynamic> json) =>
+      _$RouteDataFromJson(json);
+
   @JsonKey(name: 'id')
   String id;
   @JsonKey(name: 'payAssetUuid')
@@ -35,9 +38,6 @@ class RouteData with EquatableMixin {
   List<Rank> rank;
   @JsonKey(name: 'bestSourceReceiveAmount')
   String bestSourceReceiveAmount;
-
-  factory RouteData.fromJson(Map<String, dynamic> json) =>
-      _$RouteDataFromJson(json);
 
   Map<String, dynamic> toJson() => _$RouteDataToJson(this);
 

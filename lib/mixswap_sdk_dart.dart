@@ -1,5 +1,3 @@
-library mixswap_sdk_dart;
-
 export 'src/client.dart';
 export 'src/vo/asset.dart';
 export 'src/vo/chain_asset.dart';

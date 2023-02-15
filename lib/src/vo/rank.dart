@@ -10,12 +10,12 @@ class Rank with EquatableMixin {
     required this.estimateReceiveAmount,
   });
 
+  factory Rank.fromJson(Map<String, dynamic> json) => _$RankFromJson(json);
+
   @JsonKey(name: 'symbol')
   String symbol;
   @JsonKey(name: 'estimateReceiveAmount')
   String estimateReceiveAmount;
-
-  factory Rank.fromJson(Map<String, dynamic> json) => _$RankFromJson(json);
 
   Map<String, dynamic> toJson() => _$RankToJson(this);
 
